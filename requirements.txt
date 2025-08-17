@@ -1,0 +1,14 @@
+# Activate with: .venv\Scripts\activate
+#1. way uv add library name
+### uv add -r requirements.txt
+langgraph
+fastapi
+uvicorn
+langchain
+langchain_community
+langchain_groq
+langchain_core
+fastapi
+uvicorn
+watchdog
+langchain-cli[inmem]
