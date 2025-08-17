@@ -1,0 +1,7 @@
+{
+    "dependencies" :["."],
+    "graphs":{
+        "blog_generator_agent": "./src/langgraph_studio/debug.py:graph"
+    },
+    "env" : "./.env"
+}
