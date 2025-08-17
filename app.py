@@ -26,6 +26,7 @@ async def create_blogs(request:Request):
     data = await request.json()
 
     topic = data.get("topic","")
+    language = data.get("language")
 
     ### get the llm object
 
@@ -37,10 +38,15 @@ async def create_blogs(request:Request):
 
     graph_builder = GraphBuilder(llm=llm)
 
+    if topic and language:
+        graph=graph_builder.setup_graph(usecase="language")
+        state = graph.invoke({"topic" : topic,"current_langauge" : language})
+
     if topic:
         graph=graph_builder.setup_graph(usecase="topic")
         state = graph.invoke({"topic" : topic})
-
+    
+    
     return {"data":state}
 
 if __name__ == "__main__":
